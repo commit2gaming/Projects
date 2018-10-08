@@ -3,4 +3,3 @@ It's just my repertoire of ideas, ongoing and finished projects envolving Web de
 
 ## Folders
 * Basic_FE: Nothing other then HTML, CSS and JS
-* 
