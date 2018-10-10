@@ -4,17 +4,68 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<title>Project Ideas</title>
 </head>
 <body>
 	<div class="container">
-		<h1>Project Ideas</h1>
+		<h1>Project Ideas 
+			<a id="add-project" href="#">
+				<i class="fas fa-plus-circle"></i>
+			</a>
+		</h1>
 
+		<hr>
+		<!-- ADD PROJECT -->
+		<div class="projects">
+			<form id="add-form" action="" hidden>
+				<table class="add-project-table">
+					<tr>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Task</th>
+						<th>Creator</th>
+						<th>Due (M-D-Y)</th>
+					</tr>
+					<tr>
+						<td><input type="text" id="title-add"></td>
+						<td><input type="text" id="description-add"></td>
+						<td><input type="text" id="task-add"></td>
+						<td><input type="text" id="creator-add"></td>
+						<!-- TODO: change the input date format DD-MM-YYYY-->
+						<td><input type="text" id="due-add" placeholder="MM-DD-YYYY"></td>
+					</tr>
+				</table>
+				<button id="add-project-btn">Add</button>
+				<button id="cancel-project-btn">Cancel</button>
+				<hr>
+			</form>
 
-		<br>
+		</div>
 
+		<div class="projects">
+			<table class="table-projects">
+				<!-- HEADERS -->
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Steps</th>
+					<th>Creator</th>
+					<th>Created</th>
+					<th>Due (M-D-Y)</th>
+					<th>Progress</th>
+					<th colspan="2"><i class="fa fa-cog"></i></th>
+				</tr>
+				<!-- TO BE INSERTED -->
+			</table>
+		</div>
 	</div>
 	
+	<script src="scripts/ui.js"></script>
+	<script src="scripts/helpers.js"></script>
+	<script src="scripts/create.js"></script>
+	<script src="scripts/project.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>

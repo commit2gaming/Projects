@@ -1,0 +1,40 @@
+
+
+
+
+
+
+/* TABLE */
+.table-projects {
+	width: 100%;
+	padding: 10px;
+}
+
+/* TASK-LIST */
+.tasks-list {
+	list-style-type: none;
+}
+
+/* Font awesome */
+.fas {
+	transition-duration: 0.4s;
+	-webkit-transition-duration: 0.4s;
+}
+.fa-plus-circle {
+	color: lightgreen;
+}
+.fa-plus-circle:hover {
+	color: green;
+}
+.fa-edit {
+	color: lightskyblue;
+}
+.fa-edit:hover {
+	color: blue;
+}
+.fa-times-circle {
+	color: lightcoral;
+}
+.fa-times-circle:hover {
+	color: red;
+}
