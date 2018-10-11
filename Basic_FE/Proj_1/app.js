@@ -1,8 +1,6 @@
 // Array of Project objects
-const projects = [];
 
-
-
+let projects = [];
 
 // 
 // CREATE PROJECTS
@@ -13,10 +11,7 @@ document.querySelector('#add-project').addEventListener('click', toggleAddForm);
 document.querySelector('#add-project-btn').addEventListener('click', createProject);
 // Cancel Form inputs
 document.querySelector('#cancel-project-btn').addEventListener('click', cancelInput);
-// Add multiple tasks
-document.querySelector('.table-projects').addEventListener('click', addTasksToProject);
 
-// FIXME: When marking a task as completed update Progress. Change status of steps in Project
 
 // 
 // READ PROJECTS
@@ -27,8 +22,13 @@ document.querySelector('.table-projects').addEventListener('click', addTasksToPr
 // UPDATE PROJECTS
 //
 
+// Add multiple tasks
+document.querySelector('.table-projects').addEventListener('click', toggleTaskDone);
+document.querySelector('.table-projects').addEventListener('click', addTasksToProject);
+// FIXME: When marking a task as completed update Progress. Change status of steps in Project
+
 // 
-// REMOVE PROJECTS
+// DELETE PROJECTS
 //
 
-
+document.querySelector('.table-projects').addEventListener('click', deleteProject);

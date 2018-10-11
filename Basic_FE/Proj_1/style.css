@@ -15,6 +15,10 @@ li {
 	list-style-type: none;
 }
 
+.done {
+	text-decoration: line-through;
+	color: lightgreen;
+}
 /* Font awesome */
 .fas {
 	transition-duration: 0.4s;
