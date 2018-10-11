@@ -10,3 +10,10 @@ formatDate = (date) => {
 	${date.getFullYear()}`;
 	return d;
 }
+
+clearFields = () => {
+	document.querySelector('#title-add').value = '';
+	document.querySelector('#description-add').value = '';
+	document.querySelector('#creator-add').value = '';
+	document.querySelector('#due-add').value = '';
+}

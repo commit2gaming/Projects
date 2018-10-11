@@ -17,28 +17,26 @@
 		</h1>
 
 		<hr>
-		<!-- ADD PROJECT -->
+		<!-- ADD PROJECT HIDDEN FORM -->
 		<div class="projects">
-			<form id="add-form" action="" hidden>
+			<form id="add-form" action="">
 				<table class="add-project-table">
 					<tr>
 						<th>Title</th>
 						<th>Description</th>
-						<th>Task</th>
 						<th>Creator</th>
 						<th>Due (M-D-Y)</th>
 					</tr>
 					<tr>
 						<td><input type="text" id="title-add"></td>
 						<td><input type="text" id="description-add"></td>
-						<td><input type="text" id="task-add"></td>
 						<td><input type="text" id="creator-add"></td>
 						<!-- TODO: change the input date format DD-MM-YYYY-->
 						<td><input type="text" id="due-add" placeholder="MM-DD-YYYY"></td>
 					</tr>
 				</table>
-				<button id="add-project-btn">Add</button>
-				<button id="cancel-project-btn">Cancel</button>
+				<button type="button" id="add-project-btn">Add</button>
+				<button type="button" id="cancel-project-btn">Cancel</button>
 				<hr>
 			</form>
 
@@ -46,7 +44,7 @@
 
 		<div class="projects">
 			<table class="table-projects">
-				<!-- HEADERS -->
+				<!-- PROJECTS HEADERS -->
 				<tr>
 					<th>Title</th>
 					<th>Description</th>
@@ -65,7 +63,13 @@
 	<script src="scripts/ui.js"></script>
 	<script src="scripts/helpers.js"></script>
 	<script src="scripts/create.js"></script>
+	<script src="scripts/update.js"></script>
 	<script src="scripts/project.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+

@@ -11,7 +11,7 @@
 }
 
 /* TASK-LIST */
-.tasks-list {
+li {
 	list-style-type: none;
 }
 

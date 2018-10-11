@@ -9,18 +9,13 @@ toggleAddForm = () => {
 
 cancelInput = () => {
 	if (confirm("Are you sure you want to erase the data?") === true) {
-		document.querySelector('#title-add').value = '';
-		document.querySelector('#description-add').value = '';
-		document.querySelector('#task-add').value = '';
-		document.querySelector('#creator-add').value = '';
-		document.querySelector('#due-add').value = '';
+		clearFields();
 	}
 }
 
 createProject = () => {
 	const titleInput = document.querySelector('#title-add').value;
 	const descriptionInput = document.querySelector('#description-add').value;
-	const taskInput = document.querySelector('#task-add').value;
 	const creatorInput = document.querySelector('#creator-add').value;
 	const dueInput = document.querySelector('#due-add').value;
 
@@ -28,7 +23,6 @@ createProject = () => {
 	if (
 		titleInput === '' ||
 		descriptionInput === '' ||
-		taskInput === '' ||
 		creatorInput === '' ||
 		dueInput === '') {
 
@@ -37,12 +31,14 @@ createProject = () => {
 	} else {
 		Project.title = titleInput;
 		Project.description = descriptionInput;
-		Project.steps[0].task = taskInput;
 		Project.creator = creatorInput;
 		Project.due = new Date(dueInput);
 
 		// Add Project to projects array
 		projects.push(Project);
+
+		// Clear input fields
+		clearFields();
 
 		addProject();
 	}
