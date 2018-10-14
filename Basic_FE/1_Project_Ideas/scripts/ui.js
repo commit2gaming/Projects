@@ -10,6 +10,18 @@ toggleAddForm = () => {
 		}
 }
 
+toggleProjects = () => {
+	const mainTable = document.querySelector('.mainProjects');
+	const coverPicture = document.querySelector('.cover-picture');
+	if (!projects || projects.length < 1) {
+		mainTable.style.display = 'none';
+		coverPicture.style.display = 'block';
+	} else {
+		mainTable.style.display = 'block';
+		coverPicture.style.display = 'none';
+	}
+}
+
 // 
 // CREATE PROJECT
 // 
@@ -19,7 +31,8 @@ addProjectToUlList = (Project, pos) => {
 	let tr = document.createElement('tr');
 	tr.id = `${pos}`;
 	tr.innerHTML = createTableInput(Project, pos);
-	projectsTable.firstElementChild.appendChild(tr)
+	projectsTable.firstElementChild.appendChild(tr);
+	toggleProjects();
 }
 
 createTableInput = (Project, pos) => {
@@ -95,6 +108,7 @@ addTaskToUI = (task, inputField) => {
 deleteUiTable = (target) => {
 	const row = target.parentNode.parentNode.rowIndex;
 	document.querySelector('.table-projects').deleteRow(row);
+	toggleProjects();
 }
 
 updateUiProgress = (progress, pos) => {
