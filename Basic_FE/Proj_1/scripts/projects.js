@@ -16,10 +16,15 @@ createProject = () => {
 		created: new Date(),
 		due: new Date(),
 		progress: function() {
-			const completed = this.steps.reduce((acc, cur) => {
-				return acc + cur.status;
-			}, 0);
-			return formatTwoDecimals(completed / this.steps.length);
+			// Validation of status
+			if (!this.steps) {
+				return 0;
+			} else {
+				const completed = this.steps.reduce((acc, cur) => {
+					return acc + cur.status;
+				}, 0);
+				return formatTwoDecimals(completed / this.steps.length);
+			}
 		}
 	};
 
@@ -44,8 +49,7 @@ createProject = () => {
 		Project.creator = creatorInput;
 		Project.created = new Date();
 		Project.due = new Date(dueInput);
-
-		console.log(projects);
+		
 		
 		// Add Project to projects array
 		projects.push(Project);
@@ -118,6 +122,10 @@ toggleTaskDone = (e) => {
 		taskStatus.status = false;
 
 		e.target.classList.toggle("done");
+
+		// Update progress
+		const progress = projects[projectNumber].progress();
+		updateUiProgress(progress, projectNumber);
 	}
 };
 
@@ -127,7 +135,6 @@ toggleTaskDone = (e) => {
 deleteProject = (e) => {
 	if(e.target.parentElement.classList.contains('remove-item')) {
 		const projectNumber = getProjectNumber(e.target.parentElement.id);
-		console.log('projectNumber: ', projectNumber);
 
 		projects.splice(projectNumber,1);
 

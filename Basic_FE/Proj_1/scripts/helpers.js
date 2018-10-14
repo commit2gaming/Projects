@@ -1,6 +1,6 @@
 // Format passed number using two decimals
 formatTwoDecimals = (number) => {
-	return Math.round(number * 100).toFixed(2)/100;
+	return Math.round(number * 100);
 };
 
 formatDate = (date) => {

@@ -53,7 +53,7 @@ createTableInput = (Project, pos) => {
 				${formatDate(Project.due)}
 			</td>
 			<td id="${pos}-progress" class="progress-item">
-				${Project.progress()}
+				0
 			</td>
 			<td id="${pos}-edit" class="edit-item">
 				<i class="fas fa-edit blue"></i>
@@ -93,8 +93,11 @@ addTaskToUI = (task, inputField) => {
 
 
 deleteUiTable = (target) => {
-	console.log('target: ', target);
 	const row = target.parentNode.parentNode.rowIndex;
-	console.log('row: ', row);
 	document.querySelector('.table-projects').deleteRow(row);
+}
+
+updateUiProgress = (progress, pos) => {
+	const td = document.getElementById(`${pos}-progress`);
+	td.innerText = progress;
 }
