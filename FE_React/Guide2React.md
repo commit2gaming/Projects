@@ -61,6 +61,29 @@ $ npm install -g create-react-app
 $ create-react-app your-app-name
 ```
 
+This is the file structure `create-react-app` will create
+```
+your-app-name
+	node_modules
+	public
+	src
+	.gitignore
+	package-lock.json
+	package.json
+	READ_ME.md
+```
+
+5. `cd` into `your-app-name`
+```
+$ cd your-app-name
+```
+6. Run `npm start`
+```
+$ npm start
+```
+This will launch React. Watch the magic on your browser.
+
+
 
 --------------------------------
 ## Coding
@@ -434,11 +457,89 @@ Keys can not be passed as props.
 
 --------------------------------
 ### Fomrs
+HTML browse to a new page when the user submits a form. But, in most cases you need a JS function to handle the submission. The standard way to do it is through Controlled Components
+
+#### Controlled Components
+```javascript
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+`onChange()` calls a handler function which updates the `this.state.value`. When submit is called `handleSubmit()`executes with the updated value.
+Every state mutation have an associated handler function.
+
+#### Input, textarea and select tags
+In HTML
+```html
+<textarea>
+  Hello there, this is some text in a text area
+</textarea>
+```
+In React, the `<input>`, `<textarea>` and `<select>` accept a `value` attribute that can be used to implement a controlled component.
+
 
 
 
 --------------------------------
-### Handling Events
+### Composition Inheritance
+
+`WelcomeDialog` is a special kind of `Dialog`. 
+The former is more specific than the latter. 
+> Composition is when a more "specific" component configures and renders a more "generic" component.
+```javascript
+function Dialog(props) {
+  return (
+    <div className={'Dialog Dialog-' + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+// WelcomeDialog
+function WelcomeDialog() {
+  return (
+    <Dialog color="blue">
+      <h1 className="Dialog-title">
+        Welcome
+      </h1>
+      <p className="Dialog-message">
+        Thank you for visiting our spacecraft!
+      </p>
+    </Dialog>
+  );
+}
+```
+The more specific `WelcomeDialog` component calls the more generic with oppening and closing `Dialog` tags. The content between these tags is accessed by `Dialog` using `props. children`. The content of the tags can be other components, classes or objects "to be verified".
+
+
+> If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or a class, without extending it.
 
 --------------------------------
 ## Reference
