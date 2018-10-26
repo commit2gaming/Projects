@@ -16,9 +16,9 @@ This app will be build with:
         - `<HeaderTitle />`
     - `~ <MainColumn />` List of agents `(commit)`
         - `~ < AgentCard/>` Show agent profile `(commit)`
-            - `< AgentCardPhoto/>`
-            - `< AgentCardName/>`
-            - `< AgentCardEmail/>`
+            - `<AgentCardPhoto />`
+            - `<AgentCardName />`
+            - `<AgentCardEmail />`
         - `<EditAgents />`
             - `<CreateAgent />`
             - `<ModifyAgent />`
@@ -39,7 +39,7 @@ This app will be build with:
 The structure above depicts the content of the application.
 - `< />` React Component
 - [ ]: Router path
-- `~`: MVP
+- `~`: MVP (Minimum Viable Product)
 - `(tag)`: Who's currently working on
 
 ## Features to be added in the future
